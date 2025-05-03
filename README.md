@@ -16,7 +16,7 @@
 ---
 
 ## 🚀 How to Use
-1. **Select a difficulty level** (District/Regional/State/AI)  
+1. **Select a difficulty level** (District/Regional/State)  
 2. Click **"Generate Question"**  
 3. Choose **Debit** or **Credit** for the displayed account  
 4. Review correct answer and improve!  
