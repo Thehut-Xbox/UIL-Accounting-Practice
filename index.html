@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UIL Accounting Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="connection-status" id="connection-status"></div>
+    
+    <div class="app-container">
+        <header>
+            <h1>UIL Accounting Practice</h1>
+            <div class="level-boxes">
+                <div class="box" data-level="district">
+                    <h2>District</h2>
+                    <p>Basic concepts</p>
+                </div>
+                <div class="box" data-level="regional">
+                    <h2>Regional</h2>
+                    <p>Intermediate level</p>
+                </div>
+                <div class="box" data-level="state">
+                    <h2>State</h2>
+                    <p>Advanced scenarios</p>
+                </div>
+                <div class="box" data-level="ai">
+                    <h2>AI Generated</h2>
+                    <p>Dynamic questions</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="question-container">
+                <div id="question">Select a level to begin</div>
+                <div id="feedback"></div>
+            </div>
+
+            <div class="controls">
+                <button id="generate-btn">Generate Question</button>
+                <div class="answer-buttons">
+                    <button class="answer-btn" data-answer="debit">Debit</button>
+                    <button class="answer-btn" data-answer="credit">Credit</button>
+                </div>
+                <div class="score-display">
+                    Score: <span id="score">0/0</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+:root {
+    --color-primary: #2c3e50;
+    --color-secondary: #3498db;
+    --color-success: #2ecc71;
+    --color-danger: #e74c3c;
+    --color-warning: #f39c12;
+    --color-ai: #9b59b6;
+    --color-light: #ecf0f1;
+    --color-dark: #2c3e50;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    background-color: #f5f7fa;
+    display: flex;
+    flex-direction: column;
+}
+
+.connection-status {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.status-checking { background-color: var(--color-warning); box-shadow: 0 0 10px var(--color-warning); }
+.status-connected { background-color: var(--color-success); box-shadow: 0 0 10px var(--color-success); }
+.status-disconnected { background-color: var(--color-danger); box-shadow: 0 0 10px var(--color-danger); }
+
+.app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.level-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.box {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    min-width: 200px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    flex: 1;
+    max-width: 250px;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.box.active {
+    border-color: var(--color-secondary);
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.box.active h2 {
+    color: white;
+}
+
+.box[data-level="ai"] {
+    border-color: var(--color-ai);
+}
+
+.box[data-level="ai"].active {
+    background-color: var(--color-ai);
+}
+
+.box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+.box p {
+    color: #7f8c8d;
+}
+
+.box.active p {
+    color: rgba(255,255,255,0.8);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-container {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    min-height: 200px;
+}
+
+#question {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#feedback {
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#feedback.correct {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--color-success);
+}
+
+#feedback.incorrect {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: var(--color-danger);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#generate-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#generate-btn:hover {
+    background-color: #1a252f;
+}
+
+.answer-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.answer-btn {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.answer-btn[data-answer="debit"] {
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.answer-btn[data-answer="credit"] {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.answer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.score-display {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+#score {
+    color: var(--color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .level-boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .box {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .answer-buttons {
+        flex-direction: column;
+    }
+}
