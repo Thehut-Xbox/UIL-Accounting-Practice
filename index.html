@@ -3,49 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UIL Accounting Practice</title>
+    <title>Master UIL Accounting</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="connection-status" id="connection-status"></div>
     
     <div class="app-container">
-        <header>
-            <h1>UIL Accounting Practice</h1>
-            <div class="level-boxes">
-                <div class="box" data-level="district">
-                    <h2>District</h2>
-                    <p>Basic concepts</p>
-                </div>
-                <div class="box" data-level="regional">
-                    <h2>Regional</h2>
-                    <p>Intermediate level</p>
-                </div>
-                <div class="box" data-level="state">
-                    <h2>State</h2>
-                    <p>Advanced scenarios</p>
-                </div>
-                <div class="box" data-level="ai">
-                    <h2>AI Generated</h2>
-                    <p>Dynamic questions</p>
-                </div>
+        <header class="main-header">
+            <div class="hero-section">
+                <h1>Master UIL Accounting</h1>
+                <p class="subhead">Practice different UIL accounting groups</p>
             </div>
         </header>
 
-        <main>
-            <div class="question-container">
-                <div id="question">Select a level to begin</div>
-                <div id="feedback"></div>
-            </div>
-
-            <div class="controls">
-                <button id="generate-btn">Generate Question</button>
-                <div class="answer-buttons">
-                    <button class="answer-btn" data-answer="debit">Debit</button>
-                    <button class="answer-btn" data-answer="credit">Credit</button>
+        <main class="home-content">
+            <div class="practice-groups">
+                <div class="group-row">
+                    <a href="financial_accounting.html" class="group-card">
+                        <h2>Credit/Debit</h2>
+                        <p>Master the fundamentals of debits and credits in financial transactions</p>
+                    </a>
+                    <a href="managerial_accounting.html" class="group-card">
+                        <h2>Depreciation</h2>
+                        <p>Learn about asset depreciation methods and calculations</p>
+                    </a>
                 </div>
-                <div class="score-display">
-                    Score: <span id="score">0/0</span>
+                <div class="group-row">
+                    <a href="cost_accounting.html" class="group-card">
+                        <h2>Inventory Valuation</h2>
+                        <p>Understand different inventory valuation methods and their applications</p>
+                    </a>
+                    <a href="tax_accounting.html" class="group-card">
+                        <h2>Stocks</h2>
+                        <p>Explore stock transactions and their accounting implications</p>
+                    </a>
                 </div>
             </div>
         </main>

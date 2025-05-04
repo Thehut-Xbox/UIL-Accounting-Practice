@@ -249,20 +249,25 @@ function handleAnswer(e) {
         console.warn('No current question to answer!');
         return;
     }
-    
+
     const userAnswer = e.target.dataset.answer;
-    console.log('User answer:', userAnswer, 'Correct answer:', correctAnswer); // Debug log
-    
-    if (userAnswer === correctAnswer) {
+    const isCorrect = userAnswer === correctAnswer;
+
+    // Update score
+    score.total++;
+    if (isCorrect) {
+        score.correct++;
         feedbackEl.textContent = 'Correct!';
         feedbackEl.className = 'correct';
-        score.correct++;
+        // Automatically generate new question after a short delay
+        setTimeout(() => {
+            generateNewQuestion();
+        }, 1000); // 1 second delay
     } else {
-        feedbackEl.textContent = `Incorrect! The correct answer was ${correctAnswer.toUpperCase()}`;
+        feedbackEl.textContent = 'Incorrect. Try again!';
         feedbackEl.className = 'incorrect';
     }
-    
-    score.total++;
+
     updateScore();
 }
 
