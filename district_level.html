@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District Level - Master UIL Accounting</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .practice-container {
+            max-width: 1800px;
+            margin: 1px auto;
+            padding: 0 20px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-button:hover {
+            background-color: #34495e;
+        }
+
+        .practice-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            min-height: 200px;
+        }
+
+        .practice-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .practice-box h2 {
+            color: #2c3e50;
+            margin: 0 0 20px 0;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .practice-box p {
+            margin: 0;
+            color: #666;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="connection-status" id="connection-status"></div>
+    
+    <div class="app-container">
+        <a href="index.html" class="back-button">← Back to Home</a>
+        <header class="main-header">
+            <div class="hero-section">
+                <h1>District Level Practice</h1>
+                <p class="subhead">Master foundational concepts with basic calculations and simple scenarios</p>
+            </div>
+        </header>
+
+        <main class="home-content">
+            <div class="practice-container">
+                <a href="district_debit_credit.html" class="practice-box">
+                    <h2>Debit/Credit</h2>
+                    <p>Practice basic debit and credit transactions</p>
+                </a>
+                <a href="district_income_statement.html" class="practice-box">
+                    <h2>Income Statements</h2>
+                    <p>Learn to create and analyze income statements</p>
+                </a>
+                <a href="#" class="practice-box">
+                    <h2>Employee Wage Calculations</h2>
+                    <p>Master employee wage and payroll calculations</p>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

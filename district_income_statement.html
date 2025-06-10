@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District Level - Financial Statement Practice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inherit styles from styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background-color: #2c3e50;
+            display: inline-block;
+        }
+
+        .main-nav a:hover {
+            background-color: #1a252f;
+        }
+
+        .main-nav a.active {
+            background-color: white;
+            color: #2c3e50;
+        }
+
+        .practice-container {
+            width: 100%;
+            margin: 40px 0;
+            padding: 0 20px;
+            box-sizing: border-box;
+            max-width: none;
+        }
+
+        .financial-statement-problem {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .statement-box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: #f9f9f9;
+            page-break-inside: avoid;
+        }
+        
+        .statement-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        
+        .statement-date {
+            text-align: center;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .accounting-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            font-family: inherit;
+        }
+        
+        .accounting-table td {
+            padding: 8px 5px;
+            vertical-align: top;
+            border: none;
+        }
+        
+        .company-name {
+            text-align: center;
+            font-weight: bold;
+            width: 25%;
+        }
+        
+        .account-name {
+            width: 25%;
+            padding-left: 15px;
+        }
+        
+        .amount,
+        .missing-value {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            width: 25%;
+            padding-right: 15px;
+        }
+        
+        .missing-value span {
+            display: inline-block;
+            min-width: 60px; /* Adjusted for $   (x) */
+            text-align: left;
+        }
+        
+        .missing-value .label {
+            position: relative; /* Changed to relative */
+            bottom: 0; /* Adjusted */
+            font-size: 0.8em;
+            color: #666;
+            margin-left: 5px; /* Added space */
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .double-border-bottom {
+            border-bottom: 3px double #ccc;
+        }
+
+        .questions {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .questions h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .question {
+            margin-bottom: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .generate-btn,
+        .solutions-toggle,
+        .equations-toggle {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .generate-btn:hover,
+        .solutions-toggle:hover,
+        .equations-toggle:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .solution {
+            color: green;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .equations-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .equations-box h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .equation-item {
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="connection-status" id="connection-status"></div>
+    
+    <header class="main-header">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="district_debit_credit.html">Debit/Credit</a></li>
+                <li><a href="district_income_statement.html" class="active">Income Statement</a></li>
+                <li><a href="district_employee_payroll.html">Employee Payroll</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="app-container">
+        <main>
+            <div class="practice-container">
+                <div class="controls">
+                    <button class="generate-btn" id="generateBtn">Generate New Problem</button>
+                    <button class="solutions-toggle" id="solutionsToggle">Show Solutions</button>
+                    <button class="equations-toggle" id="equationsToggle">Show Equations</button>
+                </div>
+                <div id="problemContainer" class="financial-statement-problem"></div>
+                <div id="questionsAndSolutionsContainer">
+                    <div id="questionsList" class="questions hidden"></div>
+                    <div id="solutions" class="questions hidden"><h3>Solutions</h3><div id="solutionsContent"></div></div>
+                </div>
+                <div id="equations" class="equations-box hidden">
+                    <h3>Equations</h3>
+                    <div class="equation-item">Net Income = Revenues – Operating Expenses</div>
+                    <div class="equation-item">Revenues = Net Income + Operating Expenses</div>
+                    <div class="equation-item">Operating Expenses = Revenues – Net Income</div>
+                    <div class="equation-item">Capital, Dec 31 = Capital, Jan 1 + Net Income – Drawing</div>
+                    <div class="equation-item">Capital, Jan 1 = Capital, Dec 31 – Net Income + Drawing</div>
+                    <div class="equation-item">Drawing = Capital, Jan 1 + Net Income – Capital, Dec 31</div>
+                    <div class="equation-item">Total Assets = Total Liabilities + Total Owner's Equity</div>
+                    <div class="equation-item">Total Liabilities = Total Assets – Total Owner's Equity</div>
+                    <div class="equation-item">Total Owner's Equity = Total Assets – Total Liabilities</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="district_income_statement.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const equationsToggle = document.getElementById('equationsToggle');
+            const equationsDiv = document.getElementById('equations');
+            const solutionsToggle = document.getElementById('solutionsToggle');
+            const questionsAndSolutionsContainer = document.getElementById('questionsAndSolutionsContainer');
+            const solutionsDiv = document.getElementById('solutions');
+            const questionsList = document.getElementById('questionsList');
+
+            equationsToggle.addEventListener('click', function() {
+                equationsDiv.classList.toggle('hidden');
+                if (equationsDiv.classList.contains('hidden')) {
+                    equationsToggle.textContent = 'Show Equations';
+                } else {
+                    equationsToggle.textContent = 'Hide Equations';
+                }
+            });
+
+            solutionsToggle.addEventListener('click', function() {
+                const isSolutionsHidden = solutionsDiv.classList.contains('hidden');
+                if (isSolutionsHidden) {
+                    solutionsDiv.classList.remove('hidden');
+                    solutionsToggle.textContent = 'Hide Solutions';
+                    // Apply flexbox layout
+                    questionsAndSolutionsContainer.style.display = 'flex';
+                    questionsAndSolutionsContainer.style.gap = '20px';
+                    questionsList.style.flex = '1';
+                    solutionsDiv.style.flex = '1';
+                } else {
+                    solutionsDiv.classList.add('hidden');
+                    solutionsToggle.textContent = 'Show Solutions';
+                    // Revert to default layout (questions take full width)
+                    questionsAndSolutionsContainer.style.display = ''; // Revert to block or default
+                    questionsAndSolutionsContainer.style.gap = '';
+                    questionsList.style.flex = ''; // Revert flex
+                    solutionsDiv.style.flex = ''; // Revert flex
+                }
+            });
+
+            // Initial state on page load
+            const problem = generateProblem();
+            const { statementsHTML, questionsHTML, solutionsHTML } = generateProblemHTML(problem);
+            document.getElementById('problemContainer').innerHTML = statementsHTML;
+            questionsList.innerHTML = questionsHTML;
+            document.getElementById('solutionsContent').innerHTML = solutionsHTML;
+            
+            // Initially show questions and hide solutions box
+            questionsList.classList.remove('hidden');
+            solutionsDiv.classList.add('hidden');
+            
+            // Ensure container is block initially for questions to take full width
+            questionsAndSolutionsContainer.style.display = '';
+        });
+    </script>
+</body>
+</html> 

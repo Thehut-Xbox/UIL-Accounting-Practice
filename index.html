@@ -5,6 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master UIL Accounting</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .practice-groups {
+            max-width: 1800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .group-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .group-card {
+            background-color: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            min-height: 300px;
+            width: 100%;
+        }
+
+        .group-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .group-card h2 {
+            color: #2c3e50;
+            margin: 0 0 20px 0;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .group-card p {
+            margin: 0;
+            color: #666;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .group-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .group-card {
+                min-height: 200px;
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="connection-status" id="connection-status"></div>
@@ -20,23 +83,17 @@
         <main class="home-content">
             <div class="practice-groups">
                 <div class="group-row">
-                    <a href="financial_accounting.html" class="group-card">
-                        <h2>Credit/Debit</h2>
-                        <p>Master the fundamentals of debits and credits in financial transactions</p>
+                    <a href="district_level.html" class="group-card">
+                        <h2>District Level</h2>
+                        <p>Master foundational concepts with basic calculations and simple scenarios</p>
                     </a>
-                    <a href="managerial_accounting.html" class="group-card">
-                        <h2>Depreciation</h2>
-                        <p>Learn about asset depreciation methods and calculations</p>
+                    <a href="regional_level.html" class="group-card">
+                        <h2>Regional Level</h2>
+                        <p>Build on district concepts with more complex scenarios and calculations</p>
                     </a>
-                </div>
-                <div class="group-row">
-                    <a href="cost_accounting.html" class="group-card">
-                        <h2>Inventory Valuation</h2>
-                        <p>Understand different inventory valuation methods and their applications</p>
-                    </a>
-                    <a href="tax_accounting.html" class="group-card">
-                        <h2>Stocks</h2>
-                        <p>Explore stock transactions and their accounting implications</p>
+                    <a href="state_level.html" class="group-card">
+                        <h2>State Level</h2>
+                        <p>Challenge yourself with the most complex scenarios and advanced concepts</p>
                     </a>
                 </div>
             </div>

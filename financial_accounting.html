@@ -15,7 +15,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="financial_accounting.html" class="active">Credit/Debit</a></li>
-                    <li><a href="managerial_accounting.html">Depreciation</a></li>
+                    <li><a href="depreciation.html">Depreciation</a></li>
                     <li><a href="cost_accounting.html">Inventory Valuation</a></li>
                     <li><a href="tax_accounting.html">Stocks</a></li>
                 </ul>
@@ -23,43 +23,34 @@
         </header>
 
         <main>
-            <div class="level-boxes">
-                <div class="box" data-level="district">
-                    <h2>District</h2>
-                    <p>Basic concepts</p>
+            <div class="practice-container">
+                <div class="level-boxes">
+                    <div class="box" data-level="district">
+                        <h2>District</h2>
+                        <p>District level competition</p>
+                    </div>
+                    <div class="box" data-level="regional">
+                        <h2>Regional</h2>
+                        <p>Regional level competition</p>
+                    </div>
+                    <div class="box" data-level="state">
+                        <h2>State</h2>
+                        <p>State level competition</p>
+                    </div>
                 </div>
-                <div class="box" data-level="regional">
-                    <h2>Regional</h2>
-                    <p>Intermediate level</p>
-                </div>
-                <div class="box" data-level="state">
-                    <h2>State</h2>
-                    <p>Advanced scenarios</p>
-                </div>
-                <div class="box" data-level="ai">
-                    <h2>AI Generated</h2>
-                    <p>Dynamic questions</p>
-                </div>
-            </div>
 
-            <div class="question-container">
-                <div id="question">Select a level to begin</div>
-                <div id="feedback"></div>
-            </div>
-
-            <div class="controls">
-                <button id="generate-btn">Generate Question</button>
-                <div class="answer-buttons">
-                    <button class="answer-btn" data-answer="debit">Debit</button>
-                    <button class="answer-btn" data-answer="credit">Credit</button>
-                </div>
-                <div class="score-display">
-                    Score: <span id="score">0/0</span>
+                <div class="question-container">
+                    <p id="question-text"></p>
+                    <div class="answer-buttons">
+                        <button class="answer-btn" data-answer="debit">Debit</button>
+                        <button class="answer-btn" data-answer="credit">Credit</button>
+                    </div>
+                    <p id="feedback"></p>
+                    <p class="score">Score: <span id="score">0/0</span></p>
                 </div>
             </div>
         </main>
     </div>
-
-    <script src="script.js"></script>
+    <script src="financial_accounting.js"></script>
 </body>
 </html> 

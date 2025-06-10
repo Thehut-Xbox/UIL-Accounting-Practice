@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Depreciation Practice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .practice-container {
+            width: 100%;
+            margin: 40px 0;
+            padding: 0 20px;
+            box-sizing: border-box;
+            max-width: none;
+        }
+
+        .main-nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            width: 100%;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background-color: #2c3e50;
+            display: inline-block;
+        }
+
+        .main-nav a:hover {
+            background-color: #1a252f;
+        }
+
+        .main-nav a.active {
+            background-color: white;
+            color: #2c3e50;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .method-toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .method-btn {
+            padding: 10px 20px;
+            border: 2px solid #2c3e50;
+            background: white;
+            color: #2c3e50;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .method-btn.active {
+            background: #2c3e50;
+            color: white;
+        }
+
+        #generate-btn {
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #generate-btn:hover {
+            background: #34495e;
+        }
+
+        .split-container {
+            display: flex;
+            gap: 20px;
+            min-height: 600px;
+        }
+
+        .question-side, .answer-side {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .question-content, .answer-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #question-text {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        #question-data {
+            flex: 1;
+        }
+
+        .answer-section {
+            margin-top: auto;
+        }
+
+        #answer-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #2c3e50;
+            border-radius: 5px;
+        }
+
+        #submit-answer {
+            width: 100%;
+            padding: 10px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #submit-answer:hover {
+            background: #34495e;
+        }
+
+        #feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #feedback.correct {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        #feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="connection-status" id="connection-status"></div>
+    
+    <div class="app-container">
+        <header class="main-header">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="state_debit_credit.html">Debit/Credit</a></li>
+                    <li><a href="state_depreciation.html" class="active">Depreciation (Advanced)</a></li>
+                    <li><a href="#">Bad Debts (Advanced)</a></li>
+                    <li><a href="#">Inventory Management</a></li>
+                    <li><a href="#">Financial Statements</a></li>
+                    <li><a href="#">Common Stock Records</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="practice-container">
+                <div class="question-header">
+                    <div class="method-toggle">
+                        <button class="method-btn active" data-method="straight-line">Straight-Line</button>
+                        <button class="method-btn" data-method="double-declining">Double Declining</button>
+                    </div>
+                    <button id="generate-btn">Generate New Question</button>
+                </div>
+                <div class="split-container">
+                    <div class="question-side">
+                        <div class="question-content">
+                            <p id="question-text"></p>
+                            <div id="question-data"></div>
+                        </div>
+                    </div>
+                    <div class="answer-side">
+                        <div class="answer-content">
+                            <div id="question-options"></div>
+                            <div class="answer-section">
+                                <div id="answer-input-container" style="display: none;">
+                                    <input type="number" id="answer-input" placeholder="Enter your answer">
+                                </div>
+                                <button id="submit-answer">Submit Answer</button>
+                                <p id="feedback"></p>
+                                <p>Score: <span id="score">0/0</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Interface -->
+            <div class="chat-container">
+                <h3>Ask for Help</h3>
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="Ask a question about solving this problem...">
+                    <button id="chat-submit">Send</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="depreciation.js"></script>
+</body>
+</html> 
