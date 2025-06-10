@@ -1,43 +1,33 @@
-# UIL Accounting Practice App
-**Practice tool for UIL Accounting (Group 1: Debit/Credit Classification)**  
-*Master the fundamentals of journal entries by identifying accounts as Debit or Credit!*
+# Master UIL Accounting Practice Platform
 
----
+A comprehensive web-based platform designed to help students practice UIL Accounting concepts across **three competition levels**: District, Regionals, and State.
 
-## 📌 Features
-- **Three Difficulty Levels**:  
-  - **District**: Basic accounts (e.g., Accounts Receivable, Sales)  
-  - **Regional**: Intermediate accounts (e.g., Accumulated Depreciation, Bad Debts Expense)  
-  - **State**: Advanced accounts (e.g., Discount on Notes Payable, Retained Earnings)  
-- **AI-Generated Questions**: Dynamic scenarios for extra challenge (does not work for now / will fix later)
-- **Instant Feedback**: Correct/incorrect indicators  
-- **Score Tracking**: Monitor your progress over time  
+## 📊 Competition Levels
+| Level       | Question Types                          | Difficulty  |
+|-------------|-----------------------------------------|-------------|
+| **District**  | Foundational concepts, basic calculations, simple scenarios | Beginner |
+| **Regionals** | Intermediate concepts, multi-step problems, case studies | Intermediate |
+| **State**     | Advanced scenarios, complex calculations, time-pressured drills | Expert |
 
----
+## ✨ Key Features
+- **Level-Specific Practice**  
+  - District: Income statements, basic journal entries  
+  - Regionals: Ratio analysis, inventory costing  
+  - State: Cash flow statements, advanced adjustments  
+- **Interactive Tools**  
+  - Real-time feedback  
+  - Depreciation calculator  
+  - Financial statement generator  
 
-## 🚀 How to Use
-1. **Select a difficulty level** (District/Regional/State)  
-2. Click **"Generate Question"**  
-3. Choose **Debit** or **Credit** for the displayed account  
-4. Review correct answer and improve!  
+## 🛠️ Technical Stack
+| Component       | Technology          |
+|-----------------|---------------------|
+| Frontend        | HTML5, CSS3, JavaScript |
+| Backend         | Node.js             |
+| Styling         | Responsive CSS      |
 
----
-
-## 📚 Group 1 Focus Areas
-Practice classifying these account types:  
-| Account Type       | Normal Balance | Example Accounts        |  
-|--------------------|----------------|-------------------------|  
-| **Assets**         | Debit          | Cash, Accounts Receivable |  
-| **Liabilities**    | Credit         | Accounts Payable, Loans  |  
-| **Equity**         | Credit         | Capital, Retained Earnings |  
-| **Revenue**        | Credit         | Sales, Service Revenue   |  
-| **Expenses**       | Debit          | Rent Expense, Salaries   |  
-
----
-
-## 🛠 Setup (For Local Development)
+## 🚀 Getting Started
 ```bash
 git clone https://github.com/yourusername/accounting-practice.git
-cd accounting-practice
 npm install
 node server.js
