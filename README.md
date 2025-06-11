@@ -36,20 +36,3 @@ A tiered practice system for UIL Accounting competitors, structured to match rea
 | Depreciation        |          | ✓ Basic   | ✓ Complex Methods |
 | Financial Statements| ✓ Income | ✓ Partial | ✓ Full Set |
 | Payroll             | ✓ Wages  | ✓ Salary+Tax |       |
-
-## 🛠️ Practice Tools
-- **Interactive Drills**  
-  - District: Guided step-by-step exercises  
-  - Regionals: Timed problem sets (45 min)  
-  - State: Mock competition simulations  
-
-- **Visual Calculators**  
-  ▶️ Depreciation comparison tool  
-  ▶️ Inventory flow animator  
-
-## 📥 Get Started
-```bash
-# Run specific level:
-npm run district-drills
-npm run regional-cases
-npm run state-simulator
