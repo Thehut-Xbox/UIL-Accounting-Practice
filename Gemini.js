@@ -1,5 +1,5 @@
 // --- Configuration ---
-const apiKey = 'AIzaSyBwqHSOyA0DQB_tRR47LYrl1SSeEK0KAhk'; // Get key from environment variable
+const apiKey = window.GEMINI_API_KEY || ''; // Set this securely in your environment, not in code
 const model = 'gemini-1.5-flash'; // Or 'gemini-pro', 'gemini-2.0-flash', etc.
 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 

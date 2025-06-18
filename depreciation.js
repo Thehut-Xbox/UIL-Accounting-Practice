@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Configuration
     const config = {
-        apiKey: 'AIzaSyBwqHSOyA0DQB_tRR47LYrl1SSeEK0KAhk', // TODO: Move to environment variable
+        apiKey: window.GEMINI_API_KEY || '', // Set this securely in your environment, not in code
         model: 'gemini-1.5-flash',
         apiUrl: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
     };
@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to generate random asset values
     function generateRandomValues() {
         const originalCost = Math.floor(Math.random() * (100000 - 10000) + 10000);
-        const disposalValue = Math.floor(originalCost * (Math.random() * 0.2 + 0.1)); // 10-30% of original cost
+        const salvageValue = Math.floor(originalCost * (Math.random() * 0.2 + 0.1)); // 10-30% of original cost
         const estimatedLife = Math.floor(Math.random() * 5) + 3; // 3-7 years
         const assetSoldFor = Math.floor(originalCost * (Math.random() * 0.8 + 0.4)); // 40-120% of original cost
         
-        return { originalCost, disposalValue, estimatedLife, assetSoldFor };
+        return { originalCost, salvageValue, estimatedLife, assetSoldFor };
     }
 
     // Function to calculate double declining balance depreciation
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Calculate depreciation for each month
         for (let i = 0; i < months; i++) {
-            const monthlyDepreciation = bookValue * monthlyRate;
+            let monthlyDepreciation = bookValue * monthlyRate;
             // Ensure we don't depreciate below salvage value
-            if (bookValue - monthlyDepreciation < data.disposalValue) {
-                monthlyDepreciation = bookValue - data.disposalValue;
+            if (bookValue - monthlyDepreciation < data.salvageValue) {
+                monthlyDepreciation = bookValue - data.salvageValue;
             }
             totalDepreciation += monthlyDepreciation;
             bookValue -= monthlyDepreciation;
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
                       (soldDate.getMonth() - purchaseDate.getMonth());
         
         // Calculate monthly depreciation
-        const monthlyDepreciation = (data.originalCost - data.disposalValue) / (data.estimatedLife * 12);
+        const monthlyDepreciation = (data.originalCost - data.salvageValue) / (data.estimatedLife * 12);
         
         // Calculate total depreciation
         const totalDepreciation = monthlyDepreciation * months;
@@ -167,12 +167,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to generate a random question
     function generateRandomQuestion() {
         const { purchaseDate, saleDate } = generateRandomDates();
-        const { originalCost, disposalValue, estimatedLife, assetSoldFor } = generateRandomValues();
+        const { originalCost, salvageValue, estimatedLife, assetSoldFor } = generateRandomValues();
         
         const questionData = {
             data: {
                 originalCost,
-                disposalValue,
+                salvageValue,
                 datePurchased: purchaseDate,
                 estimatedLife,
                 depreciationMethod: currentMethod === 'straight-line' ? "Straight-Line" : "Double Declining Balance",
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         questionDataElement.innerHTML = `
             <div class="question-info">
                 <p><strong>Original Cost:</strong> $${data.originalCost.toLocaleString()}</p>
-                <p><strong>Disposal Value:</strong> $${data.disposalValue.toLocaleString()}</p>
+                <p><strong>Salvage Value:</strong> $${data.salvageValue.toLocaleString()}</p>
                 <p><strong>Date Purchased:</strong> ${data.datePurchased}</p>
                 <p><strong>Estimated Useful Life:</strong> ${data.estimatedLife} years</p>
                 <p><strong>Depreciation Method:</strong> ${data.depreciationMethod}</p>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District Level - Payroll Practice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .practice-container {
+            width: 100%;
+            margin: 40px 0;
+            padding: 0 20px;
+            box-sizing: border-box;
+            max-width: none;
+        }
+
+        .problem-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .employee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #ddd;
+        }
+
+        .employee-table th, .employee-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .employee-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .questions-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+            padding: 24px 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            font-size: 1.15rem;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .question-number {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .generate-btn {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .generate-btn:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .show-solution-btn {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .show-solution-btn:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .main-nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            width: 100%;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background-color: #2c3e50;
+            display: inline-block;
+        }
+
+        .main-nav a:hover {
+            background-color: #1a252f;
+        }
+
+        .main-nav a.active {
+            background-color: white;
+            color: #2c3e50;
+        }
+
+        .solution {
+            color: green;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="connection-status" id="connection-status"></div>
+    
+    <div class="app-container">
+        <header class="main-header">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="district_debit_credit.html">Debit/Credit</a></li>
+                    <li><a href="district_income_statement.html">Income Statement</a></li>
+                    <li><a href="district_payroll.html" class="active">Employee Payroll</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="home-content">
+            <div class="practice-container">
+                <div class="controls">
+                    <button class="generate-btn" id="generateBtn">Generate New Problem</button>
+                </div>
+                <div class="problem-container">
+                    <p>The following employees of Rangers, Inc. are paid an hourly wage plus overtime at a rate of 1½ (1.5) times the regular rate of pay for each hour worked over 40 in a week. The company is closed on weekends, and there were no paid holidays this week. Considering the data below, answer questions 1-6.</p>
+                    
+                    <table class="employee-table">
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Hourly Wage</th>
+                                <th>Mon</th>
+                                <th>Tues</th>
+                                <th>Wed</th>
+                                <th>Thur</th>
+                                <th>Fri</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeData">
+                        </tbody>
+                    </table>
+
+                    <div class="questions-container" id="questionsContainer">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="district_payroll.js"></script>
+</body>
+</html> 
