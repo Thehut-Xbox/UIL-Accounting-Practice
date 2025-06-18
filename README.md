@@ -1,43 +1,38 @@
-# UIL Accounting Practice App
-**Practice tool for UIL Accounting (Group 1: Debit/Credit Classification)**  
-*Master the fundamentals of journal entries by identifying accounts as Debit or Credit!*
+# Master UIL Accounting Practice Platform
 
----
+A tiered practice system for UIL Accounting competitors, structured to match real competition difficulty progression.
 
-## 📌 Features
-- **Three Difficulty Levels**:  
-  - **District**: Basic accounts (e.g., Accounts Receivable, Sales)  
-  - **Regional**: Intermediate accounts (e.g., Accumulated Depreciation, Bad Debts Expense)  
-  - **State**: Advanced accounts (e.g., Discount on Notes Payable, Retained Earnings)  
-- **AI-Generated Questions**: Dynamic scenarios for extra challenge (does not work for now / will fix later)
-- **Instant Feedback**: Correct/incorrect indicators  
-- **Score Tracking**: Monitor your progress over time  
+## 📊 Competition Levels & Topics
 
----
+### 🟢 **District Level**  
+*Foundational skills for beginners*  
+- **Debit/Credit Fundamentals**  
+- Income Statement Preparation  
+- Employee Wage Calculations  
 
-## 🚀 How to Use
-1. **Select a difficulty level** (District/Regional/State)  
-2. Click **"Generate Question"**  
-3. Choose **Debit** or **Credit** for the displayed account  
-4. Review correct answer and improve!  
+### 🟡 **Regional Level**  
+*Intermediate challenges*  
+- **Debit/Credit Applications**  
+- Depreciation Methods (Straight-line, Units-of-production)  
+- Account Classification  
+- Employee Salary Withholdings  
+- Basic Tax Form Completion (W-2, W-4)  
+- Bad Debt Estimation (Allowance Method)  
+- Inventory Management (FIFO/LIFO)  
 
----
+### 🔴 **State Level**  
+*Advanced competition readiness*  
+- **Complex Debit/Credit Scenarios**  
+- Advanced Depreciation (Double-declining, MACRS)  
+- Bad Debt Analysis (Aging of Receivables)  
+- Advanced Inventory Valuation  
+- Full Financial Statement Preparation  
+- Common Stock & Equity Recording  
 
-## 📚 Group 1 Focus Areas
-Practice classifying these account types:  
-| Account Type       | Normal Balance | Example Accounts        |  
-|--------------------|----------------|-------------------------|  
-| **Assets**         | Debit          | Cash, Accounts Receivable |  
-| **Liabilities**    | Credit         | Accounts Payable, Loans  |  
-| **Equity**         | Credit         | Capital, Retained Earnings |  
-| **Revenue**        | Credit         | Sales, Service Revenue   |  
-| **Expenses**       | Debit          | Rent Expense, Salaries   |  
-
----
-
-## 🛠 Setup (For Local Development)
-```bash
-git clone https://github.com/yourusername/accounting-practice.git
-cd accounting-practice
-npm install
-node server.js
+## 🎯 Feature Comparison
+| Topic               | District | Regionals | State |
+|---------------------|----------|-----------|-------|
+| Debit/Credit        | ✓ Basics | ✓ Applied | ✓ Advanced Cases |
+| Depreciation        |          | ✓ Basic   | ✓ Complex Methods |
+| Financial Statements| ✓ Income | ✓ Partial | ✓ Full Set |
+| Payroll             | ✓ Wages  | ✓ Salary+Tax |       |
