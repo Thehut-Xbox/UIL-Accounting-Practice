@@ -36,3 +36,5 @@ A tiered practice system for UIL Accounting competitors, structured to match rea
 | Depreciation        |          | ✓ Basic   | ✓ Complex Methods |
 | Financial Statements| ✓ Income | ✓ Partial | ✓ Full Set |
 | Payroll             | ✓ Wages  | ✓ Salary+Tax |       |
+
+https://thehut-xbox.github.io/UIL-Accounting-Practice/
