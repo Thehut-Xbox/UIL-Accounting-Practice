@@ -2,15 +2,15 @@
 
 A tiered practice system for UIL Accounting competitors, structured to match real competition difficulty progression.
 
-## 📊 Competition Levels & Topics
+##  Competition Levels & Topics
 
-### 🟢 **District Level**  
+###  **District Level**  
 *Foundational skills for beginners*  
 - **Debit/Credit Fundamentals**  
 - Income Statement Preparation  
 - Employee Wage Calculations  
 
-### 🟡 **Regional Level**  
+###  **Regional Level**  
 *Intermediate challenges*  
 - **Debit/Credit Applications**  
 - Depreciation Methods (Straight-line, Units-of-production)  
@@ -20,7 +20,7 @@ A tiered practice system for UIL Accounting competitors, structured to match rea
 - Bad Debt Estimation (Allowance Method)  
 - Inventory Management (FIFO/LIFO)  
 
-### 🔴 **State Level**  
+###  **State Level**  
 *Advanced competition readiness*  
 - **Complex Debit/Credit Scenarios**  
 - Advanced Depreciation (Double-declining, MACRS)  
@@ -29,7 +29,7 @@ A tiered practice system for UIL Accounting competitors, structured to match rea
 - Full Financial Statement Preparation  
 - Common Stock & Equity Recording  
 
-## 🎯 Feature Comparison
+## Feature Comparison
 | Topic               | District | Regionals | State |
 |---------------------|----------|-----------|-------|
 | Debit/Credit        | ✓ Basics | ✓ Applied | ✓ Advanced Cases |
@@ -37,4 +37,4 @@ A tiered practice system for UIL Accounting competitors, structured to match rea
 | Financial Statements| ✓ Income | ✓ Partial | ✓ Full Set |
 | Payroll             | ✓ Wages  | ✓ Salary+Tax |       |
 
-https://thehut-xbox.github.io/UIL-Accounting-Practice/
+
